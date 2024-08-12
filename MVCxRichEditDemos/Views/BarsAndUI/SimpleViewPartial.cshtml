@@ -1,0 +1,32 @@
+﻿@using DevExpress.XtraRichEdit;
+@using DevExpress.XtraRichEdit.API.Native;
+@using System.Drawing;
+@using DevExpress.Web.Demos;
+@using System.Web.UI.WebControls;
+
+@section AdditionalResources {
+    <script type="text/javascript" src="@Url.Content("~/Scripts/SimpleViewPartialCustomization.js")"></script>
+}
+
+    @Html.DevExpress().RichEdit(settings =>
+    {
+        settings.Name = "RichEdit";
+        settings.CallbackRouteValues = new { Controller = "BarsAndUI", Action = "SimpleViewPartial" };
+
+        settings.Width = Unit.Percentage(100);
+        settings.Height = Unit.Percentage(100);
+
+
+        settings.ShowConfirmOnLosingChanges = false;
+        settings.ActiveTabIndex = 5;
+        settings.WorkDirectory = "~/App_Data/Documents";
+
+        settings.Settings.Views.ViewType = DevExpress.Web.ASPxRichEdit.RichEditViewType.Simple;
+        settings.CalculateDocumentVariable = (s, e) => BarsAndUIController.Document_CalculateDocumentVariable(s, e);
+
+
+        settings.ClientSideEvents.Init = "function(s, e) {onInit(s, e); }"; ;
+
+        //settings.ClientSideEvents.DocumentLoaded = "function(s, e) {onDocumentLoaded(s, e); }";
+
+    }).Open("C:\\Users\\Public\\Documents\\DevExpress Demos 24.1\\Components\\ASP.NET\\CS\\MVCxRichEditDemos\\App_Data\\Documents\\result5.docx").GetHtml()

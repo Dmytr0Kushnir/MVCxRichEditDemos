@@ -1,0 +1,15 @@
+﻿@Html.DevExpress().RichEdit(settings =>
+{
+    settings.Name = "RichEdit";
+    settings.CallbackRouteValues = new { Controller = "DocumentManagement", Action = "LoadAndSavePartial" };
+    settings.CustomActionRouteValues = new { Controller = "DocumentManagement", Action = "ExportFile" };
+
+    settings.Width = Unit.Percentage(100);
+    settings.Height = Unit.Pixel(600);
+
+    settings.ShowConfirmOnLosingChanges = false;
+    settings.ActiveTabIndex = 5;
+    settings.WorkDirectory = "~/App_Data/Documents";
+    settings.CalculateDocumentVariable = (s, e) => DocumentManagementController.Document_CalculateDocumentVariable(s, e);
+
+}).Open("C:\\Users\\Public\\Documents\\DevExpress Demos 24.1\\Components\\ASP.NET\\CS\\MVCxRichEditDemos\\App_Data\\Documents\\FINAL CM031124 Office Buford GA Report.docx").GetHtml();
