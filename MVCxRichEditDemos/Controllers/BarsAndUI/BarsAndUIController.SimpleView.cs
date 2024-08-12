@@ -22,14 +22,14 @@ namespace DevExpress.Web.Demos {
             {
                 case "TABLE":
                     var doc1 = new RichEditDocumentServer();
-                    Table table = doc1.Document.Tables.Create(doc1.Document.Range.Start, 20, 4);
+                    Table table = doc1.Document.Tables.Create(doc1.Document.Range.Start, 2, 4);
 
                     doc1.Document.InsertSingleLineText(table.Rows[0].Cells[0].Range.Start, "ID");
                     doc1.Document.InsertSingleLineText(table.Rows[0].Cells[1].Range.Start, "Photo");
                     doc1.Document.InsertSingleLineText(table.Rows[0].Cells[2].Range.Start, "Customer Info");
                     doc1.Document.InsertSingleLineText(table.Rows[0].Cells[3].Range.Start, "Rentals");
 
-                    for (int i = 1; i < 20; i++)
+                    for (int i = 1; i < 2; i++)
                     {
                         doc1.Document.InsertSingleLineText(table.Rows[i].Cells[0].Range.Start, $"ID {i}");
 
@@ -46,7 +46,7 @@ namespace DevExpress.Web.Demos {
                         doc1.Document.InsertText(table.Rows[i].Cells[3].Range.Start, rentalsInfo);
                     }
 
-                    for (int i = 1; i < 20; i++)
+                    for (int i = 1; i < 2; i++)
                     {
                         string imagePath = System.Web.Hosting.HostingEnvironment.MapPath($"~/Content/logo.png");
                         if (System.IO.File.Exists(imagePath))

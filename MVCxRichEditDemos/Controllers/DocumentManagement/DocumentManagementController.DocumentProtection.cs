@@ -38,7 +38,7 @@ namespace DevExpress.Web.Demos {
         //    if (userRole == "lawyer")
         //    {
         //        document.Document.Sections[0].ProtectedForForms = true;
-               
+
         //        document.Document.Protect("lawyerPassword", DocumentProtectionType.);
         //    }
         //    else if (userRole == "projectmanager")

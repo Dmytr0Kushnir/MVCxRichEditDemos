@@ -16,9 +16,13 @@
     settings.ActiveTabIndex = 0;
     settings.RibbonMode = RichEditRibbonMode.OneLineRibbon;
 
+    settings.CalculateDocumentVariable = (s, e) => DocumentManagementController.Document_CalculateDocumentVariable(s, e);
+
+    settings.ClientSideEvents.Init = "function(s, e) {onInit(s, e); }"; ;
+
     settings.PreRender = (s, e) => {
         MVCxRichEdit richEdit = (MVCxRichEdit)s;
         RichEditDemoUtils.HideFileTab(richEdit);
         richEdit.Focus();
     };
-}).Open(Path.Combine(DirectoryManagmentUtils.CurrentDataDirectory, "DocumentProtection.docx")).GetHtml()
+}).Open(Path.Combine(DirectoryManagmentUtils.CurrentDataDirectory, "AlbertEinstein.docx")).GetHtml()
